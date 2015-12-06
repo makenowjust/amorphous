@@ -42,7 +42,7 @@ module JSONParser
 
   WS = (char(' ') | char('\t') | char('\n') | char('\r')).skip_many
 
-  JSON = WS >> VALUE << WS
+  JSON = WS >> VALUE << WS << eof
 
   BEGIN_ARRAY = WS >> char('[').highlight(:punctual) << WS
   BEGIN_OBJECT = WS >> char('{').highlight(:punctual) << WS
